@@ -8,14 +8,10 @@
 
 */
 
+#include "BMSetting.h"
+
 namespace BM {
 
-	// To Use global variable to different files
-
-	extern cl::Platform defaultPlatform;
-	extern cl::Device defaultDevice;
-
-	//------------------------------------------
 
 	// Contains Matrix and value related calculations
 
@@ -23,12 +19,12 @@ namespace BM {
 		cl::Context context({ defaultDevice });
 
 		// kernel calculates for each element C=A+B
-		std::string kernel_code =
+		std::string kernelCode =
 			"   __kernel void addMatAndVal(__global float* A, float B){       "
 			"       A[get_global_id(0)]=A[get_global_id(0)]+B;       "
 			"   }                                                                       ";
 
-		cl::Program::Sources sources(1, std::make_pair(kernel_code.c_str(), kernel_code.length() + 1));
+		cl::Program::Sources sources(1, std::make_pair(kernelCode.c_str(), kernelCode.length() + 1));
 
 		cl::Program program(context, sources);
 		program.build("-cl-std=CL1.2");
@@ -61,12 +57,12 @@ namespace BM {
 		cl::Context context({ defaultDevice });
 
 		// kernel calculates for each element C=A+B
-		std::string kernel_code =
+		std::string kernelCode =
 			"   __kernel void subMatAndVal(__global float* A, float B){       "
 			"       A[get_global_id(0)]=A[get_global_id(0)]-B;						"
 			"   }                                                                       ";
 
-		cl::Program::Sources sources(1, std::make_pair(kernel_code.c_str(), kernel_code.length() + 1));
+		cl::Program::Sources sources(1, std::make_pair(kernelCode.c_str(), kernelCode.length() + 1));
 
 		cl::Program program(context, sources);
 		program.build("-cl-std=CL1.2");
@@ -99,12 +95,12 @@ namespace BM {
 		cl::Context context({ defaultDevice });
 
 		// kernel calculates for each element C=A+B
-		std::string kernel_code =
+		std::string kernelCode =
 			"   __kernel void mulMatAndVal(__global float* A, float B){       "
 			"       A[get_global_id(0)]=A[get_global_id(0)]*B;						"
 			"   }                                                                       ";
 
-		cl::Program::Sources sources(1, std::make_pair(kernel_code.c_str(), kernel_code.length() + 1));
+		cl::Program::Sources sources(1, std::make_pair(kernelCode.c_str(), kernelCode.length() + 1));
 
 		cl::Program program(context, sources);
 		program.build("-cl-std=CL1.2");
@@ -139,12 +135,12 @@ namespace BM {
 		cl::Context context({ defaultDevice });
 
 		// kernel calculates for each element C=A+B
-		std::string kernel_code =
+		std::string kernelCode =
 			"   __kernel void addMatAndVal(__global float* A, float B){       "
 			"       A[get_global_id(0)]=A[get_global_id(0)]+B;					"
 			"   }                                                                       ";
 
-		cl::Program::Sources sources(1, std::make_pair(kernel_code.c_str(), kernel_code.length() + 1));
+		cl::Program::Sources sources(1, std::make_pair(kernelCode.c_str(), kernelCode.length() + 1));
 
 		cl::Program program(context, sources);
 		program.build("-cl-std=CL1.2");
@@ -179,12 +175,12 @@ namespace BM {
 
 		cl::Context context({ defaultDevice });
 
-		std::string kernel_code =
+		std::string kernelCode =
 			"   __kernel void subMatAndVal(__global float* A, float B){       "
 			"       A[get_global_id(0)]=A[get_global_id(0)]-B;					"
 			"   }                                                                       ";
 
-		cl::Program::Sources sources(1, std::make_pair(kernel_code.c_str(), kernel_code.length() + 1));
+		cl::Program::Sources sources(1, std::make_pair(kernelCode.c_str(), kernelCode.length() + 1));
 
 		cl::Program program(context, sources);
 		program.build("-cl-std=CL1.2");
@@ -219,12 +215,12 @@ namespace BM {
 
 		cl::Context context({ defaultDevice });
 
-		std::string kernel_code =
+		std::string kernelCode =
 			"   __kernel void mulMatAndVal(__global float* A, float B){       "
 			"       A[get_global_id(0)]=A[get_global_id(0)]*B;					"
 			"   }                                                                       ";
 
-		cl::Program::Sources sources(1, std::make_pair(kernel_code.c_str(), kernel_code.length() + 1));
+		cl::Program::Sources sources(1, std::make_pair(kernelCode.c_str(), kernelCode.length() + 1));
 
 		cl::Program program(context, sources);
 		program.build("-cl-std=CL1.2");

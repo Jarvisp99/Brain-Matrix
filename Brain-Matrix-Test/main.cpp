@@ -1,4 +1,4 @@
-#include <ComputeMat.h>
+#include <ComputeMat/ComputeMat.h>
 #include <iostream>
 
 //using namespace BM;
@@ -6,7 +6,7 @@
 int main() {
 
 	BM::init();
-	int row = 10;
+	int row = 5;
 	int col = 10;
 	
 	BM::mat O1(row, col);
@@ -25,4 +25,11 @@ int main() {
 
 	std::cout << O3;
 
+	BM::mat data1(3, 4), data2(4, 9);
+	data1.fill(1);
+	data2.fill(2);
+	data1(0, 0) = 0;
+
+	//Matrix Mul
+	std::cout << data1 * data2;
 }
